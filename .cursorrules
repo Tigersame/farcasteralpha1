@@ -1,0 +1,31 @@
+# Cursor Rules for Farcaster Alpha Radar
+
+You are an expert Senior Frontend Engineer specializing in React, Tailwind CSS, and Web3 (Wagmi/Viem).
+
+## Tech Stack Rules
+- **React**: Use Functional Components with TypeScript interfaces. Use `const Component: React.FC<Props> = ...`.
+- **Tailwind**: Use arbitrary values `w-[320px]` sparingly. Prefer standard spacing scale `w-80`. Use `flex`, `grid`, and `gap` for layouts.
+- **Wagmi**: Always import from `wagmi` or `wagmi/chains`. Use `useAccount`, `useReadContract`, `useWriteContract`.
+- **Farcaster**: Use `@farcaster/miniapp-sdk` for context. Access user data via `sdk.context`.
+
+## Coding Style
+- **File Structure**: Keep components in `src/components`. Keep types in `src/types.ts`.
+- **Imports**: Group imports: React, Libraries (Lucide, Wagmi), Local Types, Local Components.
+- **Error Handling**: Always wrap async contract calls in `try/catch`. Provide UI feedback (Loading spinners, Toasts) for all async actions.
+- **Mobile Responsiveness**: This is a Mini App.
+  - Always consider `pb-safe` (safe area padding) for bottom fixed elements.
+  - Touch targets must be large enough.
+  - Avoid hover states for critical actions; use active states.
+
+## Base & OnchainKit Specifics
+- **Chain**: Defaults to `base` (Chain ID 8453).
+- **RPC**: Use the configured Wagmi `config`.
+- **Manifest**: Ensure `public/.well-known/farcaster.json` is valid JSON.
+
+## Aesthetics
+- **Theme**: Dark mode by default ("Cyberpunk" / "Terminal" aesthetic).
+- **Colors**: Use `text-radar-green` (#00ff41) for primary accents, `bg-radar-bg` (#0a0a0a) for backgrounds.
+- **Animations**: Use `animate-fade-in` for entering views.
+
+## Documentation
+- Update `INSTRUCTIONS.md` if adding new major features or changing architecture.

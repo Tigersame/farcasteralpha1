@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="color-scheme" content="dark light">
+    <title>Farcaster Alpha Radar</title>
+    
+    <!-- Farcaster Mini App Metadata -->
+    <meta name="fc:miniapp" content='{"version": "next", "imageUrl": "https://picsum.photos/1200/630", "button": {"title": "Launch Alpha", "action": {"type": "launch_miniapp", "name": "Alpha Radar", "url": "https://google.com"}}}' />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              radar: {
+                bg: 'var(--color-bg)',
+                panel: 'var(--color-panel)',
+                green: 'var(--color-green)',
+                dim: 'var(--color-dim)',
+                text: 'var(--color-text)',
+                textdim: 'var(--color-textdim)',
+                accent: 'var(--color-accent)',
+                input: 'var(--color-input)',
+              }
+            },
+            animation: {
+              'scan': 'scan 4s linear infinite',
+              'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'fade-in': 'fadeIn 0.3s ease-out forwards',
+            },
+            keyframes: {
+              scan: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        /* Light Mode Defaults */
+        --color-bg: #f3f4f6;
+        --color-panel: #ffffff;
+        --color-green: #059669; /* darker green for contrast on light */
+        --color-dim: #e5e7eb;
+        --color-text: #111827;
+        --color-textdim: #6b7280;
+        --color-accent: #10b981;
+        --color-input: #f9fafb;
+      }
+      
+      .dark {
+        /* Dark Mode Overrides */
+        --color-bg: #0a0a0a;
+        --color-panel: #111111;
+        --color-green: #00ff41;
+        --color-dim: #003b0f;
+        --color-text: #e0e0e0;
+        --color-textdim: #9ca3af;
+        --color-accent: #39ff14;
+        --color-input: #000000;
+      }
+
+      body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: 'Courier New', Courier, monospace;
+        -webkit-font-smoothing: antialiased;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      /* Mobile Safe Area for Bottom Nav */
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-panel);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-dim);
+        border-radius: 2px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-green);
+      }
+      
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "wagmi": "https://esm.sh/wagmi@2.5.7",
+    "wagmi/chains": "https://esm.sh/wagmi@2.5.7/chains",
+    "wagmi/connectors": "https://esm.sh/wagmi@2.5.7/connectors",
+    "viem": "https://esm.sh/viem@2.7.1",
+    "@tanstack/react-query": "https://esm.sh/@tanstack/react-query@5.28.4",
+    "@farcaster/miniapp-sdk": "https://esm.sh/@farcaster/miniapp-sdk@0.0.10",
+    "@farcaster/miniapp-wagmi-connector": "https://esm.sh/@farcaster/miniapp-wagmi-connector@0.0.3",
+    "wagmi/": "https://esm.sh/wagmi@^3.4.2/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
